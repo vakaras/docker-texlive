@@ -22,6 +22,7 @@ RUN cd /tmp/ && \
     cd install-tl-* && \
     ./install-tl --profile=/tmp/texlive.profile && \
     rm -rf /tmp/*
+ENV PATH $PATH:/usr/local/texlive/2017/bin/x86_64-linux/
 
 # Install additional tools.
 RUN apt-get update && \
@@ -41,3 +42,14 @@ RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
+
+# Set up home.
+ENV HOME /home/developer
+RUN mkdir -p /home/developer && \
+    chmod 777 /home/developer
+
+# Mark container.
+ENV TEXLIVE_CONTAINER 1
+
+# Set the working directory.
+WORKDIR /data

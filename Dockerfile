@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:17.04
 MAINTAINER Vytautas Astrauskas "vastrauskas@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -35,7 +35,9 @@ RUN apt-get update && \
         && \
     apt-get clean && \
     pip install --upgrade pip && \
-    pip install https://bitbucket.org/vakaras/pygments-main/get/tip.zip#egg=pygments
+    pip install https://bitbucket.org/vakaras/pygments-main/get/tip.zip#egg=pygments && \
+	wget -c https://raw.githubusercontent.com/vakaras/inkscape-export-layers/1b9f3f274c1e011bcc4b439e8a3d89d5d925c7aa/exportlayers.py -O /usr/bin/exportlayers && \
+	chmod 755 /usr/bin/exportlayers
 
 # Set up locale.
 RUN locale-gen en_US.UTF-8

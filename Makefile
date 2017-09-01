@@ -1,5 +1,5 @@
 SHELL := /bin/bash
-IMAGE_VERSION=2017-08-17
+IMAGE_VERSION=2017-09-01
 IMAGE_NAME="vakaras/texlive:${IMAGE_VERSION}"
 
 build_image:

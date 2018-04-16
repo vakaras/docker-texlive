@@ -1,4 +1,4 @@
-FROM ubuntu:17.04
+FROM ubuntu:17.10
 MAINTAINER Vytautas Astrauskas "vastrauskas@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive

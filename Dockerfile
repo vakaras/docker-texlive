@@ -28,14 +28,14 @@ ENV PATH $PATH:/usr/local/texlive/2017/bin/x86_64-linux/
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         git \
-        python-pip \
-        python-setuptools \
+        python3-pip \
+        python3-setuptools \
         gnuplot \
         inkscape \
         && \
     apt-get clean && \
-    pip install --upgrade pip && \
-    pip install https://bitbucket.org/vakaras/pygments-main/get/tip.zip#egg=pygments && \
+    pip3 install --upgrade pip && \
+    pip3 install git+https://github.com/pygments/pygments@f0ff1bad7122f2604c54401b7ef1547bbeb4260f && \
 	wget -c https://raw.githubusercontent.com/vakaras/inkscape-export-layers/1b9f3f274c1e011bcc4b439e8a3d89d5d925c7aa/exportlayers.py -O /usr/bin/exportlayers && \
 	chmod 755 /usr/bin/exportlayers
 
